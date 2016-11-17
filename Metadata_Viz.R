@@ -58,9 +58,8 @@ leaflet() %>%
             title = "Percent Completeness") %>%
   # Creates two map layers, one for States, one for Counties
   addLayersControl(
-  overlayGroups = c("States", "Counties"),
-  options = layersControlOptions(collapsed = FALSE)
-  ) %>% 
+            baseGroups = c("States", "Counties"),
+            options = layersControlOptions(collapsed = FALSE)) %>% 
   # Uncheck Counties box so that only the States box is checked initially
   hideGroup("Counties") %>% 
   # Set to zoom in and center on U.S.initially
