@@ -1,3 +1,7 @@
+# Install necessary packages
+if("tigris" %in% rownames(installed.packages()) == FALSE) {install.packages("tigris", repos='http://cran.us.r-project.org')};
+if("leaflet" %in% rownames(installed.packages()) == FALSE) {install.packages("leaflet", repos='http://cran.us.r-project.org')};
+
 # Load necessary packages
 library(tigris)
 library(leaflet)
