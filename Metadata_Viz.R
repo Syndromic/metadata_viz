@@ -1,10 +1,17 @@
+## Install and load required packages----
 # Install necessary packages
 if("tigris" %in% rownames(installed.packages()) == FALSE) {install.packages("tigris", repos='http://cran.us.r-project.org')};
 if("leaflet" %in% rownames(installed.packages()) == FALSE) {install.packages("leaflet", repos='http://cran.us.r-project.org')};
+if("rio" %in% rownames(installed.packages()) == FALSE) {install.packages("rio", repos='http://cran.us.r-project.org')};
 
 # Load necessary packages
 library(tigris)
 library(leaflet)
+library(rio)
+
+## Grab real Metadata Workgroup data and merge with spatial data for mapping----
+Timeliness <- import("NSSP_MDWG_aYear.xlsx", which=5)
+Completeness <- import("NSSP_MDWG_aYear.xlsx", which=6) # Ignore warnings. These are triggered by odd entries (NR instead of %) but they are processed correctly (as NAs).
 
 # Load U.S. State and County spatial data frames
 us_states <- states(cb = TRUE, resolution = '20m', year = 2015)
@@ -12,12 +19,12 @@ us_counties <- counties(cb = TRUE, resolution = '20m', year = 2015)
 
 # Create regular data frames with simulated metadata measures for both states and counties
 State_GEOID <- us_states@data$GEOID
-State_Percent <- sample(0:100, 52, replace = TRUE)
-State_Measures <- data.frame(State_GEOID, State_Percent)  
+State_Percent <- sample(0:100, 52, replace = TRUE) # Fake data, replace with real data
+State_Measures <- data.frame(State_GEOID, State_Percent)  # Replace with real data
 
 County_GEOID <- us_counties@data$GEOID
-County_Percent <- sample(0:100, 3220, replace = TRUE)
-County_Measures <- data.frame(County_GEOID, County_Percent)  
+County_Percent <- sample(0:100, 3220, replace = TRUE) # Fake data, replace with real data
+County_Measures <- data.frame(County_GEOID, County_Percent)  # Replace with real data
 
 # Merge regular data frame to spatial data frame for states and counties
 state_metadata_merged <- geo_join(us_states, State_Measures, "GEOID", "State_GEOID", by = NULL, how = "left")
@@ -33,7 +40,10 @@ county_popup <- paste0("<strong>State FIPS Code: </strong>", county_metadata_mer
                        "<br><strong>County: </strong>", county_metadata_merged$NAME, 
                        "<br><strong>Percent Completeness: </strong>", as.character(county_metadata_merged$County_Percent))
 
-# Create map
+
+
+## Create map----
+
 leaflet() %>%
   # Pick the popular map design known as "CartoDB.Positron"
   addProviderTiles("CartoDB.Positron") %>% 
