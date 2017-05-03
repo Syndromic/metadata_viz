@@ -29,7 +29,7 @@ ui <- fluidPage(
                              "Age_Reported" = "Age_Reported", "Age_Units_Calculated" = "Age_Units_Calculated", "Age_Units_Reported" = "Age_Units_Reported",
                              "Birth_Date_Time" = "Birth_Date_Time", "Patient_Zip" = "Patient_Zip", "C_Chief_Complaint" = "C_Chief_Complaint",
                              "Admit_Reason_Description" = "Admit_Reason_Description", "Chief_Complaint_Text" = "Chief_Complaint_Text", "Admit_Reason_Combo" = "Admit_Reason_Combo",
-                             "Clinical_Impression" = "Clinical_Impression", "Triage_Notes" = "Triage_Notes", "Discharge_Diagnosis" = "Discharge_Diagnosis",
+                             "Clinical_Impression" = "Clinical_Impression", "Triage_Notes" = "Triage_Notes", "Discharge_Disposition" = "Discharge_Disposition",
                              "Diagnosis_Combo" = "Diagnosis_Combo"), 
               selected = "Administrative_Sex")
   ),
