@@ -7,7 +7,6 @@ if("stringr" %in% rownames(installed.packages()) == FALSE) {install.packages("st
 if("magrittr" %in% rownames(installed.packages()) == FALSE) {install.packages("magrittr", repos='http://cran.us.r-project.org')};
 if("dplyr" %in% rownames(installed.packages()) == FALSE) {install.packages("dplyr", repos='http://cran.us.r-project.org')};
 if("shiny" %in% rownames(installed.packages()) == FALSE) {install.packages("shiny", repos='http://cran.us.r-project.org')};
-if("shiny" %in% rownames(installed.packages()) == FALSE) {install.packages("shiny", repos='http://cran.us.r-project.org')};
 
 # Run app
 library(shiny)
