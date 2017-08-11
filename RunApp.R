@@ -1,6 +1,9 @@
 # Install required packages
 
-if("tigris" %in% rownames(installed.packages()) == FALSE) {install.packages("tigris", repos='http://cran.us.r-project.org')};
+if("devtools" %in% rownames(installed.packages()) == FALSE) {install.packages("devtools", repos='http://cran.us.r-project.org')};
+require(devtools)
+
+if("tigris" %in% rownames(installed.packages()) == FALSE) {install_version("tigris", version = "0.3.3", repos = "http://cran.us.r-project.org")};
 if("leaflet" %in% rownames(installed.packages()) == FALSE) {install.packages("leaflet", repos='http://cran.us.r-project.org')};
 if("rio" %in% rownames(installed.packages()) == FALSE) {install.packages("rio", repos='http://cran.us.r-project.org')};
 if("stringr" %in% rownames(installed.packages()) == FALSE) {install.packages("stringr", repos='http://cran.us.r-project.org')};
