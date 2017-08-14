@@ -1,5 +1,7 @@
 # metadata_viz
-Scripts for Metadata Viz App Subgroup.
+Scripts for Metadata Viz App subgroup of NSSP Data Quality Committee.
+
+See Demo folder for a version of the app that utilizes fake data sets. 
 
 Note: Real data will not be placed in this repository for privacy reasons.
 
