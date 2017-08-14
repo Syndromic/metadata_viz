@@ -23,9 +23,9 @@ Timeliness_Skel <- bind_rows(Counties_Skel, States_Skel)
 n <- nrow(Timeliness_Skel)
 
 Timeliness_Fake <- Timeliness_Skel %>% 
-                    mutate(pLessThan24 = runif(n, 0.0, 100.0), 
-                           pLessThan48 = runif(n, 0.0, 100.0), 
-                           d_p80 = runif(n, 0.0, 10.0)
+                    mutate(pLessThan24 = runif(n, 0.0, 100.0) %>% round(2), 
+                           pLessThan48 = runif(n, 0.0, 100.0) %>% round(2), 
+                           d_p80 = runif(n, 0.0, 10.0) %>% round(2)
                            )
 
 
@@ -38,7 +38,7 @@ Completeness_Skel <- crossing(Timeliness_Skel, dqvar_names)
 
 n <- nrow(Completeness_Skel)
 
-Completeness_Fake <- Completeness_Skel %>% mutate(pvisits = runif(n, 0.0, 100.0))
+Completeness_Fake <- Completeness_Skel %>% mutate(pvisits = runif(n, 0.0, 100.0) %>% round(2))
 
 
 ## Generate .rds files to readRDS() in other script ----
